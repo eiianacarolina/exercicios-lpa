@@ -28,4 +28,12 @@ Route::get('soma', function(request $request){
     return $resultado; 
 }); 
 
+Route::get('subtração', function(request $request){ 
+    $primeiroNumero = $request->input('primeiroNumero'); 
+    $segundoNumero = $request->input('segundoNumero'); 
+    $terceiroNumero = $request->input('terceiroNumero'); 
+    $resultado = $primeiroNumero - $segundoNumero - $terceiroNumero; 
+    return $resultado; 
+}); 
+
  
