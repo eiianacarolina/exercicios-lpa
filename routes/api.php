@@ -73,6 +73,13 @@ Route::get('dobro', function(request $request){
     return 'O dobro do ' . $numero1 . ' é igual a:' . $resultado; 
 }); 
 
+Route::get('retângulo', function(request $request){ 
+    $base = $request->input('base'); 
+    $altura = $request->input('altura'); 
+    $resultado = $base * $altura; 
+    return 'A área do retângulo é: ' . $resultado; 
+}); 
+
  
 
  
