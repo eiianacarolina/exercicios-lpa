@@ -116,6 +116,12 @@ Route::get('dias', function(Request $request){
     return 'Hora: '. $Hora . ' , Minutos:'. $Minutos . ' , Segundos: '. $Segundos; 
 }); 
 
+Route::get('total/compra', function(request $request){ 
+    $preçoProduto = $request->input('PP'); 
+    $quantidade = $request->input('QP'); 
+    $valorTotal = $preçoProduto * $quantidade; 
+    return $valorTotal; 
+}); 
  
  
  
