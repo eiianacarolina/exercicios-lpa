@@ -50,6 +50,16 @@ Route::get('multiplicação', function(request $request){
     return $resultado; 
 }); 
 
+Route::get('media', function(Request $request){ 
+    $Nota1 = $request->input('Nota1'); 
+    $Nota2 = $request->input('Nota2'); 
+    $Nota3 = $request->input('Nota3'); 
+    $Nota4 = $request->input('Nota4'); 
+    $Nota5 = $request->input('Nota5'); 
+    $resultado = ($Nota1 + $Nota2 + $Nota3 + $Nota4 + $Nota5)/5; 
+    return $resultado; 
+}); 
+
  
 
  
