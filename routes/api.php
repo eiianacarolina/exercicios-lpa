@@ -20,3 +20,12 @@ Route::get('nome/idade/cidade', function(Request $request){
     $cidadeNatal = $request->input('cidadeNatal');  
     return 'Meu nome é ' . $nome .  ', Nasci no ano de ' . $anodenascimento . ',na cidade de '. $cidadeNatal;  
 });  
+
+Route::get('soma', function(request $request){ 
+    $primeiroNumero = $request->input('primeiroNumero'); 
+    $segundoNumero = $request->input('segundoNumero'); 
+    $resultado = $primeiroNumero + $segundoNumero; 
+    return $resultado; 
+}); 
+
+ 
