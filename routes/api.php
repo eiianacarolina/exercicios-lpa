@@ -102,6 +102,13 @@ Route::get('fidelidade', function(Request $request){
     return $pontos; 
 }); 
 
+Route::get('comissao', function(Request $request){ 
+    $valorTotal = $request->input('VT'); 
+    $comissão = ($valorTotal * 5) /100; 
+    return 'O valor da Comissão é: '. $comissão; 
+}); 
+
+ 
  
  
 
