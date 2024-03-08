@@ -80,6 +80,14 @@ Route::get('retângulo', function(request $request){
     return 'A área do retângulo é: ' . $resultado; 
 }); 
 
+Route::get('desconto', function(Request $request){ 
+    $preçooriginal = $request->input('preço'); 
+    $porcentagem = $request->input('porcentagem'); 
+    $desconto = ($preçooriginal * $porcentagem) /100; 
+    $resultado = $preçooriginal - $desconto; 
+    return $resultado; 
+}); 
+
  
 
  
