@@ -96,6 +96,13 @@ Route::get('aumento', function(Request $request){
     return 'Salario Anterior: '. $salarioAnterior . ' , Percentual de aumento: '. $percentualdeaumento . ' , Salario Atual: '.  $salarioatual;  
 }); 
 
+Route::get('fidelidade', function(Request $request){ 
+    $valorCompra = $request->input('VC'); 
+    $pontos = $valorCompra /10; 
+    return $pontos; 
+}); 
+
+ 
  
 
  
