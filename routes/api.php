@@ -88,6 +88,14 @@ Route::get('desconto', function(Request $request){
     return $resultado; 
 }); 
 
+Route::get('aumento', function(Request $request){ 
+    $salarioAnterior = $request->input('SA'); 
+    $percentualdeaumento = $request->input('PA'); 
+    $valorAumento = ($salarioAnterior * $percentualdeaumento) /100; 
+    $salarioatual = $salarioAnterior + $valorAumento; 
+    return 'Salario Anterior: '. $salarioAnterior . ' , Percentual de aumento: '. $percentualdeaumento . ' , Salario Atual: '.  $salarioatual;  
+}); 
+
  
 
  
