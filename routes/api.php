@@ -60,6 +60,13 @@ Route::get('media', function(Request $request){
     return $resultado; 
 }); 
 
+Route::get('dividir', function(Request $request){ 
+    $primeiroNumero = $request->input('primeiroNumero'); 
+    $segundoNumero = $request->input('segundoNumero'); 
+    $resultado = $segundoNumero / $primeiroNumero; 
+    return $resultado; 
+}); 
+
  
 
  
