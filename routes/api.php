@@ -108,6 +108,14 @@ Route::get('comissao', function(Request $request){
     return 'O valor da Comissão é: '. $comissão; 
 }); 
 
+Route::get('dias', function(Request $request){ 
+    $ND = $request->input('ND'); 
+    $Hora = $ND * 24; 
+    $Minutos = $Hora * 60; 
+    $Segundos = $Minutos * 60; 
+    return 'Hora: '. $Hora . ' , Minutos:'. $Minutos . ' , Segundos: '. $Segundos; 
+}); 
+
  
  
  
