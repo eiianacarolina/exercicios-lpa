@@ -38,6 +38,14 @@ code .
 php artisan serve --port=80
 ```
 
+OBS: 
+```
+git config --global user.email anacarolinasouzagomes19@gmail.com
+```
+```
+Git config –-global user.name eiianacarolina
+```
+
 6. Importar o arquivo do _Insomnia_
 
 ## Licença
