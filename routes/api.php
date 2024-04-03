@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
 Route::get('receber/nome', function (Request $request) {
@@ -134,6 +135,28 @@ Route::get('exemplo/condicao', function (Request $request) {
     return $retorno;
 });
 
+Route::get('ex 1', function (Request $request) {
+    $numero = $request->input('numero');
+
+    if ($numero > 10) {
+        return "Número maior que dez";
+    } else {
+        return "Número menor que dez";
+    }
+});
+
+Route::get('ex 2', function (Request $request) {
+    $numero = $request->input('num');
+
+    if ($numero > 0) {
+        return "O número " . $numero .  " é positivo";
+    } else if ($numero < 0) {
+        return "O número " . $numero .  " é negativo";
+    } else {
+        return "O número " . $numero .  " é igual a zero";
+    }
+});
+
 Route::get('ex 3', function (Request $request) {
     $idade = $request->input('idade');
 
@@ -154,38 +177,6 @@ Route::get('ex 4', function (Request $request) {
     }
 });
 
-Route::get('ex 1', function (Request $request) {
-    $numero = $request->input('numero');
-
-    if ($numero > 10) {
-        return "Número maior que dez";
-    } else {
-        return "Número menor que dez";
-    }
-});
-
-Route::get('ex 7', function (Request $request) {
-    $temp = $request->input('temperatura');
-
-    if ($temp > 30) {
-        return "Está quente!";
-    } else {
-        return "Não está quente.";
-    }
-});
-
-Route::get('ex 2', function (Request $request) {
-    $numero = $request->input('num');
-
-    if ($numero > 0) {
-        return "O número " . $numero .  " é positivo";
-    } else if ($numero < 0) {
-        return "O número " . $numero .  " é negativo";
-    } else {
-        return "O número " . $numero .  " é igual a zero";
-    }
-});
-
 Route::get('ex 5', function (Request $request) {
     $num1 = $request->input('num1');
     $num2 = $request->input('num2');
@@ -197,16 +188,6 @@ Route::get('ex 5', function (Request $request) {
     }
 });
 
-Route::get('tres', function (Request $request) {
-    $numero = $request->input('num1');
-
-    if ($numero % 3 == 0) {
-        return "O número é divisível por três";
-    } else {
-        return "O número não é divisível por três";
-    }
-});
-
 Route::get('6', function (Request $request) {
     $numero = $request->input('num1');
 
@@ -214,6 +195,16 @@ Route::get('6', function (Request $request) {
         return "O número é divisível por nove";
     } else {
         return "O número não é divisível por nove";
+    }
+});
+
+Route::get('ex 7', function (Request $request) {
+    $temp = $request->input('temperatura');
+
+    if ($temp > 30) {
+        return "Está quente!";
+    } else {
+        return "Não está quente.";
     }
 });
 
@@ -293,7 +284,7 @@ Route::get('14', function (Request $request) {
             return "Você não pode dirigir";
         }
     } else {
-        return "não";
+        return "Você não pode dirigir";
     }
 });
 
@@ -360,4 +351,14 @@ Route::get('20', function(Request $request){
     }
 
     
+});
+
+Route::get('isabella', function(Request $request){
+    $nome = $request->input('nome');
+
+    if($nome == "Duda"){
+       return "Fala pra mim oq vc é ....";
+    } else {
+        return "eu sou uma rata senhora";
+    }
 });
