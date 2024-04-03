@@ -238,6 +238,14 @@ Route::get('10', function (Request $request) {
         if ($numero % 2 != 0) {
             return " O número " . $numero . " é positivo e ímpar";
         }
+    } 
+    if ($numero < 0) {
+        if ($numero % 2 == 0) {
+            return "O número " . $numero .  " é negativo e par";
+        }
+        if ($numero % 2 != 0) {
+            return " O número " . $numero . " é negativo e ímpar";
+        }
     }
 });
 
@@ -353,12 +361,114 @@ Route::get('20', function(Request $request){
     
 });
 
-Route::get('isabella', function(Request $request){
-    $nome = $request->input('nome');
+Route::get('atv1', function(Request $request){
+    $nota1 = $request->input('nota1');
+    $nota2 = $request->input('nota2');
+    $nota3 = $request->input('nota3');
+    $resultado = $nota1 + $nota2 + $nota3 / 3;
 
-    if($nome == "Duda"){
-       return "Fala pra mim oq vc é ....";
-    } else {
-        return "eu sou uma rata senhora";
+    if($resultado >= 7){
+        return "Você foi aprovado :)";
+    } else{
+        return "Você não foi aprovado :(";
+    }
+
+});
+
+Route::get('impostoDeRenda', function(Request $request){
+    $renda = $request->input('renda');
+
+    if($renda <= 1900){
+        return "Isento de imposto";
+    } 
+    if($renda >= 1901){
+        if($renda <= 2800){
+         return "Seu imposto de renda é " . ($renda * 7) /100;
+    }
+    if($renda >= 2801){
+        if($renda <= 3700)
+        return "Seu imposto de renda é " . ($renda * 15) /100;
+    } 
+    if($renda > 3700){
+        return "Seu imposto de renda é " . ($renda * 22) /100;
+    }
+
+    }
+});
+
+Route::get('anoBissexto', function(Request $request){
+    $ano = $request->input('ano');
+
+    if($ano % 4 == 0){
+        return  $ano . " é bissexto";
+    } else{
+        return $ano . " não é bissexto";
+    }
+});
+
+Route::get('atv4', function(Request $request){
+    $preço = $request->input('preço');
+    $desconto = ($preço * 15) /100;
+
+    if($preço >= 1000){
+        return "O valor total da compra é: R$". ($preço - $desconto);
+    } else{
+        return "O valor total da compra é: R$". $preço;
+    }
+});
+
+Route::get('IMC', function(Request $request){
+    $peso = $request->input('peso');
+    $altura = $request->input('altura');
+    $imc = $peso/($altura * $altura);
+
+    if($imc < 18.5){
+        return "Você está abaixo do peso :(";
+    } 
+    if($imc > 18.5){
+        if($imc <= 24.9 ){
+            return "Seu peso está normal :)";
+        }
+    }
+    if($imc > 25){
+        if($imc <= 29.9){
+            return "Seu peso está acima do normal :(";
+        }
+    }
+    if($imc > 30){
+        if($imc <= 34.9){
+            return "Obeso grau 1 :(";
+        }
+    }
+    if($imc > 35){
+        if($imc <= 40){
+            return "Obeso grau 2 :(";
+        }
+    }
+    if($imc > 40){
+        return "Obeso grau 3 :(";
+    }
+});
+    
+Route::get('operario', function(Request $request){
+    $salario = $request->input('salario');
+    $codigo = $request->input('codigo');
+    $cod1 = ($salario * 5) /100;
+    $cod2 = ($salario * 10) /100;
+    $cod3 = ($salario * 15) /100;
+    $cod4 = ($salario * 20) /100;
+    
+
+    if($codigo == 1){
+        return "Seu salário é: R$" . ($cod1 + $salario);
+    }
+    if($codigo == 2){
+        return "Seu salário é: R$" . ($cod2 + $salario);
+    }
+    if($codigo == 3){
+        return "Seu salário é: R$" . ($cod3 + $salario);
+    }
+    if($codigo == 4){
+        return "Seu salário é: R$" . ($cod4 + $salario);
     }
 });
