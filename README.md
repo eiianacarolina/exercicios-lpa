@@ -43,7 +43,7 @@ OBS:
 git config --global user.email anacarolinasouzagomes19@gmail.com
 ```
 ```
-Git config –-global user.name eiianacarolina
+Git config --global user.name eiianacarolina
 ```
 
 6. Importar o arquivo do _Insomnia_
